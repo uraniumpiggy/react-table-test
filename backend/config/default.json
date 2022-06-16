@@ -1,0 +1,8 @@
+{
+    "PORT": 5000,
+    "DBUSER": "postgres",
+    "DBHOST": "localhost",
+    "DATABASE": "table_db",
+    "DBPASS": "root",
+    "DBPORT": 5432
+}
