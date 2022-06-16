@@ -27,15 +27,14 @@ function App() {
 
   // обновляем данные таблицы при получении данных с сервера
   useEffect(() => {
-    setData(serverData)
+      setData(serverData)
   }, [serverData])
 
   // выполнение фильтрации данных таблицы в соответствии с параметрами
   const handleFiltration = useCallback((column, condition, filterValue) => {
     const newData = filter([...serverData], column, condition, filterValue)
-    console.log(newData)
     setData([...newData])
-  }, [])
+  }, [serverData])
 
   // сортировка в соответствии с колонкой и направлением сортировки
   // 1 - по возростанию, -1 - по убыванию, 0 - возвращение изначальных значений 
