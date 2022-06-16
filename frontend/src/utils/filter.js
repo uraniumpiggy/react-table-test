@@ -1,7 +1,7 @@
 const filter = (arr, sortableColumn, condition, filterValue) => {
   
   if (arr.length === 0 || arr === undefined) {
-    return
+    return []
   }
 
   for (let i = 0; i < arr.length; i++) {
@@ -14,7 +14,7 @@ const filter = (arr, sortableColumn, condition, filterValue) => {
       case 'равно':
         // фильтрация по равенству в зависимости от фильтруемой колонки
         return arr.filter(value => {
-          if (sortableColumn === 0 && new Date(value.date_col).toLocaleDateString('ru-RU') === filterValue) {
+          if (sortableColumn === 0 && value.date_col.split('T')[0] === filterValue) {
             return true
           } else if (sortableColumn === 1 && value.name_col === filterValue) {
             return true
@@ -30,7 +30,7 @@ const filter = (arr, sortableColumn, condition, filterValue) => {
       case 'содержит':
         // фильтрация по вхождению значения filterValue в фильтруемую колонки
         return arr.filter(value => {
-          if (sortableColumn === 0 && new Date(value.date_col).toLocaleDateString('ru-RU').includes(filterValue)) {
+          if (sortableColumn === 0 && value.date_col.split('T')[0].includes(filterValue)) {
             return true
           } else if (sortableColumn === 1 && value.name_col.includes(filterValue)) {
             return true

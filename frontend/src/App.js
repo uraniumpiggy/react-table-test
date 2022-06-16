@@ -33,6 +33,7 @@ function App() {
   // выполнение фильтрации данных таблицы в соответствии с параметрами
   const handleFiltration = useCallback((column, condition, filterValue) => {
     const newData = filter([...serverData], column, condition, filterValue)
+    console.log(newData)
     setData([...newData])
   }, [])
 
